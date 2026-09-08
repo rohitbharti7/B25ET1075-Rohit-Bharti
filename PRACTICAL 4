@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+class complex
+{
+float real;
+float imaginary;
+public:
+void getData()
+{
+cout << "Enter real number: ";
+cin >> real;
+cout << "Enter imaginary number: ";
+cin >> imaginary;
+}
+void displayData()
+{
+if (imaginary < 0)
+{
+cout << real << imaginary << "i" << endl;
+}
+else
+
+{
+cout << real << "+" << imaginary << "i" << endl;
+}
+}
+complex add(complex c)
+{
+complex temp;
+temp.real = real + c.real;
+temp.imaginary = imaginary + c.imaginary;
+return temp;
+}
+complex subtract(complex c)
+{
+complex temp;
+temp.real = real - c.real;
+temp.imaginary = imaginary - c.imaginary;
+return temp;
+}
+complex multiply(complex c)
+{
+complex temp;
+temp.real = (real * c.real) - (imaginary * c.imaginary);
+temp.imaginary = (real * c.imaginary) + (imaginary * c.real);
+return temp;
+}
+complex divide(complex c)
+{
+complex temp;
+float denominator;
+denominator = (c.real * c.real) +
+(c.imaginary * c.imaginary);
+if (denominator == 0)
+
+{
+cout << "Error: Cannot divide by zero complex number."
+<< endl;
+temp.real = 0;
+temp.imaginary = 0;
+return temp;
+}
+temp.real = ((real * c.real) +
+(imaginary * c.imaginary)) / denominator;
+temp.imaginary = ((imaginary * c.real) -
+(real * c.imaginary)) / denominator;
+
+return temp;
+}
+};
+int main()
+{
+complex s1, s2, s3, s4, s5, s6;
+s1.getData();
+s2.getData();
+cout << "\nFirst Complex Number: ";
+s1.displayData();
+cout << "Second Complex Number: ";
+s2.displayData();
+cout << "\n";
+s3 = s1.add(s2);
+cout << "Addition: ";
+s3.displayData();
+s4 = s1.subtract(s2);
+cout << "Subtraction: ";
+s4.displayData();
+s5 = s1.multiply(s2);
+
+cout << "Multiplication: ";
+s5.displayData();
+s6 = s1.divide(s2);
+cout << "Division: ";
+s6.displayData();
+return 0;
+}
