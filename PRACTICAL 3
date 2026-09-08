@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+void inputArray(int a[], int n) {
+cout << "Enter " << n << " elements:\n";
+for (int i = 0; i < n; i++) {
+cin >> a[i];
+}
+}
+void displayArray(int a[], int n) {
+cout << "Array elements are: ";
+for (int i = 0; i < n; i++) {
+cout << a[i] << " ";
+}
+cout << endl;
+}
+void swapElements(int &x, int &y) {
+int temp = x;
+x = y;
+y = temp;
+}
+void sortArray(int a[], int n) {
+
+for (int i = 0; i < n - 1; i++) {
+for (int j = 0; j < n - i - 1; j++) {
+if (a[j] > a[j + 1]) {
+swapElements(a[j], a[j + 1]);
+}
+}
+}
+}
+int main() {
+int n;
+cout << "Enter the size of array: ";
+cin >> n;
+int a[n];
+inputArray(a, n);
+cout << "\nBefore Sorting:\n";
+displayArray(a, n);
+sortArray(a, n);
+cout << "\nAfter Sorting:\n";
+displayArray(a, n);
+return 0;
+}
