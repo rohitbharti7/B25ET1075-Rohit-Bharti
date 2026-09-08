@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main() {
+int sum=0, i;
+for(i=2;i<=50;i+=2){
+cout<<i<<" ";
+sum+=i;
+}
+cout<<"\n sum of even number between 1 to 50 is:"<<sum;
+return 0;
